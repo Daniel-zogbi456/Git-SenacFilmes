@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Avaliações</title></head>
+<body>
+    <h1>Lista de Avaliações</h1>
+    <a th:href="@{/avaliacoes/nova}">Nova Avaliação</a>
+    <ul>
+        <li th:each="av : ${avaliacoes}">
+            <span th:text="'Filme: ' + ${av.filme.titulo} + ' | Nota: ' + ${av.nota} + ' | Por: ' + ${av.avaliador.nome}"></span>
+        </li>
+    </ul>
+</body>
+</html>

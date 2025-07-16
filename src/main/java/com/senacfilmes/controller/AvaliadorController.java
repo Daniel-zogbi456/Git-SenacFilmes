@@ -17,13 +17,13 @@ public class AvaliadorController {
     @GetMapping
     public String listarAvaliadores(Model model) {
         model.addAttribute("avaliadores", avaliadorRepository.findAll());
-        return "avaliadores/listar";
+        return "avaliadores-listar";
     }
 
     @GetMapping("/novo")
     public String mostrarFormularioCadastro(Model model) {
         model.addAttribute("avaliador", new Avaliador());
-        return "avaliadores/form";
+        return "avaliadores-form";
     }
 
     @PostMapping("/salvar")

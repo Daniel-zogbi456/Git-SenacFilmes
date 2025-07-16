@@ -27,7 +27,7 @@ public class AvaliacaoController {
     @GetMapping
     public String listarAvaliacoes(Model model) {
         model.addAttribute("avaliacoes", avaliacaoRepository.findAll());
-        return "avaliacoes/listar";
+        return "avaliacoes-listar";
     }
 
     @GetMapping("/nova")
@@ -35,7 +35,7 @@ public class AvaliacaoController {
         model.addAttribute("avaliacao", new Avaliacao());
         model.addAttribute("filmes", filmeRepository.findAll());
         model.addAttribute("avaliadores", avaliadorRepository.findAll());
-        return "avaliacoes/form";
+        return "avaliacoes-form";
     }
 
     @PostMapping("/salvar")

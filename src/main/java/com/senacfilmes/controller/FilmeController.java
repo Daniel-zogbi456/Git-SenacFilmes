@@ -17,13 +17,14 @@ public class FilmeController {
     @GetMapping
     public String listarFilmes(Model model) {
         model.addAttribute("filmes", filmeRepository.findAll());
-        return "filmes/listar";
+        return "filmes-listar";
+
     }
 
     @GetMapping("/novo")
     public String mostrarFormularioCadastro(Model model) {
         model.addAttribute("filme", new Filme());
-        return "filmes/form";
+        return "filmes-form";
     }
 
     @PostMapping("/salvar")

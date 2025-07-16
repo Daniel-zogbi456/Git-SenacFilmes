@@ -1,4 +1,4 @@
-package com.senacfilmes.senac_filmes;
+package com.senacfilmes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

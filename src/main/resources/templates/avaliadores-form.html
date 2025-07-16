@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Novo Avaliador</title></head>
+<body>
+    <h1>Cadastrar Avaliador</h1>
+    <form th:action="@{/avaliadores/salvar}" method="post" th:object="${avaliador}">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" /><br/>
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/avaliadores}">Voltar</a>
+</body>
+</html>

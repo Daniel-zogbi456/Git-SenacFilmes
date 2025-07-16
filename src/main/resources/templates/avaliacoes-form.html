@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Nova Avaliação</title></head>
+<body>
+    <h1>Avaliar Filme</h1>
+    <form th:action="@{/avaliacoes/salvar}" method="post" th:object="${avaliacao}">
+        <label>Filme:</label>
+        <select th:field="*{filme}">
+            <option th:each="f : ${filmes}" th:value="${f}" th:text="${f.titulo}"></option>
+        </select><br/>
+
+        <label>Avaliador:</label>
+        <select th:field="*{avaliador}">
+            <option th:each="a : ${avaliadores}" th:value="${a}" th:text="${a.nome}"></option>
+        </select><br/>
+
+        <label>Nota (0 a 10):</label>
+        <input type="number" th:field="*{nota}" min="0" max="10" /><br/>
+
+        <label>Comentário:</label>
+        <textarea th:field="*{comentario}"></textarea><br/>
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a th:href="@{/avaliacoes}">Voltar</a>
+</body>
+</html>
