@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head><title>Novo Filme</title></head>
+<link rel="stylesheet" th:href="@{/estilos.css}">
 <body>
+    <button id="botao-tema">Alternar Tema</button>
+    
     <h1>Cadastrar Filme</h1>
     <form th:action="@{/filmes/salvar}" method="post" th:object="${filme}">
         <label>Título:</label>
@@ -16,5 +19,7 @@
         <button type="submit">Salvar</button>
     </form>
     <a th:href="@{/filmes}">Voltar</a>
+    
+     <script th:src="@{/tema.js}"></script>
 </body>
 </html>

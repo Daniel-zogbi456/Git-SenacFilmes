@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head><title>Avaliações</title></head>
+<link rel="stylesheet" th:href="@{/estilos.css}">
 <body>
+    
+    <button id="botao-tema">Alternar Tema</button>
+    
     <h1>Lista de Avaliações</h1>
     <a th:href="@{/avaliacoes/nova}">Nova Avaliação</a>
     <ul>
@@ -9,5 +13,6 @@
             <span th:text="'Filme: ' + ${av.filme.titulo} + ' | Nota: ' + ${av.nota} + ' | Por: ' + ${av.avaliador.nome}"></span>
         </li>
     </ul>
+    <script th:src="@{/tema.js}"></script>
 </body>
 </html>

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head><title>Nova Avaliação</title></head>
+<link rel="stylesheet" th:href="@{/estilos.css}">
 <body>
+    
+    <button id="botao-tema">Alternar Tema</button>
+    
     <h1>Avaliar Filme</h1>
     <form th:action="@{/avaliacoes/salvar}" method="post" th:object="${avaliacao}">
         <label>Filme:</label>
@@ -23,5 +27,6 @@
         <button type="submit">Salvar</button>
     </form>
     <a th:href="@{/avaliacoes}">Voltar</a>
+    <script th:src="@{/tema.js}"></script>
 </body>
 </html>

@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head><title>Avaliadores</title></head>
+<link rel="stylesheet" th:href="@{/estilos.css}">
 <body>
+    <button id="botao-tema">Alternar Tema</button>
+    
     <h1>Lista de Avaliadores</h1>
+    
     <a th:href="@{/avaliadores/novo}">Cadastrar Novo</a>
     <ul>
         <li th:each="a : ${avaliadores}" th:text="${a.nome}"></li>
     </ul>
+    
+    <script th:src="@{/tema.js}"></script>
 </body>
 </html>

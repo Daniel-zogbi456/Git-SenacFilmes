@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head><title>Novo Avaliador</title></head>
+<link rel="stylesheet" th:href="@{/estilos.css}">
 <body>
+    <button id="botao-tema">Alternar Tema</button>
+    
     <h1>Cadastrar Avaliador</h1>
+    
     <form th:action="@{/avaliadores/salvar}" method="post" th:object="${avaliador}">
         <label>Nome:</label>
         <input type="text" th:field="*{nome}" /><br/>
         <button type="submit">Salvar</button>
     </form>
     <a th:href="@{/avaliadores}">Voltar</a>
+    
+    <script th:src="@{/tema.js}"></script>
 </body>
 </html>
