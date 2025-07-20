@@ -8,13 +8,20 @@
     <h1>Cadastrar Filme</h1>
     <form th:action="@{/filmes/salvar}" method="post" th:object="${filme}">
         <label>Título:</label>
-        <input type="text" th:field="*{titulo}" /><br/>
+            <input type="text" th:field="*{titulo}" />
+            <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></span>
+            <br/>
 
         <label>Gênero:</label>
-        <input type="text" th:field="*{genero}" /><br/>
+        <input type="text" th:field="*{genero}" />
+        <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></span>
+        <br/>
 
         <label>Ano:</label>
-        <input type="number" th:field="*{ano}" /><br/>
+        <input type="number" th:field="*{ano}" />
+        <span th:if="${#fields.hasErrors('ano')}" th:errors="*{ano}"></span>
+        <br/>
+
 
         <button type="submit">Salvar</button>
     </form>

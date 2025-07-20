@@ -2,21 +2,32 @@ package com.senacfilmes.model;
 
 import jakarta.persistence.*;
 import java.util.List;
-
+import jakarta.validation.constraints.*;
 @Entity
 public class Filme {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @NotBlank(message = "O título é obrigatório")
     private String titulo;
+    
+     @NotBlank(message = "O gênero é obrigatório")
     private String genero;
+    
+    @NotNull(message = "O ano é obrigatório")
     private int ano;
 
     @OneToMany(mappedBy = "filme", cascade = CascadeType.ALL)
     private List<Avaliacao> avaliacoes;
+    
+    @Override
+public String toString() {
+    return this.titulo; // ou nome para avaliador
+}
 
+    
     // Getters e Setters
 
     public Long getId() {

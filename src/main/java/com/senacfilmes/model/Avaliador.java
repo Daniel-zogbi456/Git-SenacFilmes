@@ -14,6 +14,12 @@ public class Avaliador {
 
     @OneToMany(mappedBy = "avaliador", cascade = CascadeType.ALL)
     private List<Avaliacao> avaliacoes;
+    
+    @Override
+public String toString() {
+    return this.nome; // ou nome para avaliador
+}
+
 
     // Getters e Setters
 

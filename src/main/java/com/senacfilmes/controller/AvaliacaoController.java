@@ -39,8 +39,13 @@ public class AvaliacaoController {
     }
 
     @PostMapping("/salvar")
-    public String salvar(@ModelAttribute Avaliacao avaliacao) {
-        avaliacaoRepository.save(avaliacao);
-        return "redirect:/avaliacoes";
-    }
+public String salvar(@RequestParam Long filme, @RequestParam Long avaliador, @ModelAttribute Avaliacao avaliacao) {
+    Filme f = filmeRepository.findById(filme).orElseThrow();
+    Avaliador a = avaliadorRepository.findById(avaliador).orElseThrow();
+    avaliacao.setFilme(f);
+    avaliacao.setAvaliador(a);
+    avaliacaoRepository.save(avaliacao);
+    return "redirect:/avaliacoes";
+}
+
 }

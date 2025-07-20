@@ -10,12 +10,14 @@
     <form th:action="@{/avaliacoes/salvar}" method="post" th:object="${avaliacao}">
         <label>Filme:</label>
         <select th:field="*{filme}">
-            <option th:each="f : ${filmes}" th:value="${f}" th:text="${f.titulo}"></option>
+            <option th:each="f : ${filmes}" th:value="${f.id}" th:text="${f.titulo}"></option>
+
         </select><br/>
 
         <label>Avaliador:</label>
         <select th:field="*{avaliador}">
-            <option th:each="a : ${avaliadores}" th:value="${a}" th:text="${a.nome}"></option>
+            <option th:each="a : ${avaliadores}" th:value="${a.id}" th:text="${a.nome}"></option>
+
         </select><br/>
 
         <label>Nota (0 a 10):</label>

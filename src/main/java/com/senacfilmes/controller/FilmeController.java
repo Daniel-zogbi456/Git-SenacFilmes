@@ -2,9 +2,11 @@ package com.senacfilmes.controller;
 
 import com.senacfilmes.model.Filme;
 import com.senacfilmes.repository.FilmeRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -28,8 +30,13 @@ public class FilmeController {
     }
 
     @PostMapping("/salvar")
-    public String salvarFilme(@ModelAttribute Filme filme) {
-        filmeRepository.save(filme);
-        return "redirect:/filmes";
+public String salvarFilme(@Valid @ModelAttribute Filme filme, BindingResult result, Model model) {
+    if (result.hasErrors()) {
+        model.addAttribute("filme", filme);
+        return "filmes-form";
     }
+    filmeRepository.save(filme);
+    return "redirect:/filmes";
+}
+
 }
